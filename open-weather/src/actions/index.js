@@ -1,5 +1,19 @@
 export const SET_USERNAME = 'SET_USERNAME'
+export const ADD_CITY = "ADD_CITY"
+export const REMOVE_CITY = "REMOVE CITY"
+export const SET_SEARCH = 'SET_SEARCH'
+export const SET_RESULTS = 'SET_RESULTS'
+export const GET_WEATHER_LOADING="GET_WEATHER_LOADING"
 
+export const addCityAction = (city) => ({
+  type: ADD_CITY,
+  payload: city,
+});
+
+export const removeCityAction = (index) => ({
+  type: REMOVE_CITY,
+  payload: index,
+});
 
 
 export const setUsernameAction = (name) => ({
@@ -18,3 +32,46 @@ export const setUsernameActionWithThunk = (name) => {
     })
   }
 }
+
+export const searchCityAction = (value) => {
+
+  return async (dispatch, getState) => {
+    let query = await getState();
+      try {
+        let resp = await fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${query.search.query}`)
+        let res = await resp.json()
+        console.log("RES", res.results[0].locations[0].latLng)
+        const latQuery = res.results[0].locations[0].latLng.lat
+        const longQuery =  res.results[0].locations[0].latLng.lng
+        console.log("LATQUERY", latQuery)
+        console.log("LONGQUERY", longQuery)
+        console.log("ALLOFRES",resp.ok)
+         if(resp.ok){
+           let response = await fetch(
+             `https://api.openweathermap.org/data/2.5/onecall?lat=${latQuery}&lon=${longQuery}&exclude=hourly&units=metric&appid=${process.env.REACT_APP_API_KEY}`    
+           );
+           let result = await response.json();
+            console.log("RESULT", result)
+           if (response.ok) {
+             dispatch({
+               type: SET_RESULTS,
+               payload: result,
+             })
+           } 
+
+         }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
+  export const setQueryAction = (value) => {
+    return async (dispatch) => {
+      dispatch({
+        type: SET_SEARCH,
+        payload: value,
+      });
+    };
+  };
+  

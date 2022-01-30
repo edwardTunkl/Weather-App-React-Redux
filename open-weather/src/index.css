@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#image {
+  max-height: 600px;
+  ;
+}
+#title {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 1px 1px 1px #000, 
+  3px 3px 5px rgb(166, 166, 253);
+}
+.temp-container {
+  margin-left: 7rem;
+}
+.temp-card {
+  opacity: 0.3;
+}
+.main-temp {
+  font-size: 3rem;
+}
+.city {
+  font-size: 2rem;
+  color: black;
+  text-shadow: 2px 2px 5px white
+}
+.description { 
+  font-size: 1.2rem;
+}
+.sunset {
+  margin-top: 4.8rem;
+}

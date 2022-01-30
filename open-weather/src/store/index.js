@@ -15,12 +15,15 @@ export const initialState = {
   city: {
     current:[],
     cities: [],
+    isError: false,
+    isLoading: false,
   },
   user: {
     userName: '',
   },
   search: {
-    query:""
+    query:"",
+    results: []
   }
 }
 
