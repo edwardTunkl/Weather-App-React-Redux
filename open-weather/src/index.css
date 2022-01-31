@@ -30,6 +30,11 @@ code {
 .main-temp {
   font-size: 3rem;
 }
+.temp-range {
+  color: rgb(75, 75, 75);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
 .city {
   font-size: 2rem;
   color: black;
@@ -39,7 +44,10 @@ code {
   font-size: 1.2rem;
 }
 .sunset {
-  margin-top: 4.8rem;
+  margin-top: 4.7rem;
+  color: rgb(75, 75, 75);
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 .date-cards {
   height: 1.5rem;
@@ -47,10 +55,26 @@ code {
   font-weight: 550;
 }
 .maxTemp {
-  font-size: 2rem;
-  padding-top: 0rem;
+  height: 2.5rem;
+  font-size: 2.5rem;
+  margin-top: 0rem;
+  padding: 0rem;
+  margin: 0rem;
+
 }
 .minTemp {
-  font-size: 2rem;
+  height: 2.5rem;
+  font-size: 2.5rem;
   color: white;
+  padding: 0rem;
+  margin: 0;
+  -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
+}
+.daily-card  {
+  border: 3px solid black;
+  align-items: center;
+}
+.temps {
+  margin-top: -1.7rem;
 }

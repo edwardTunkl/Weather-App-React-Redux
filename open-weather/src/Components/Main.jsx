@@ -53,7 +53,7 @@ const Main = () => {
               </Col>
               <Col className="temp-container">
                 <Card
-                  style={{ width: "33rem" }}
+                  style={{ width: "36rem" }}
                   className="bg-transparent border-0"
                 >
                   <Card.Body>
@@ -70,11 +70,13 @@ const Main = () => {
                           <div className="main-temp">
                             {Math.round(results[0].current.temp)}°C{" "}
                           </div>
-                          <div>
-                            max: {Math.round(results[0].daily[0].temp.max)}°C{" "}
+                          <div className="d-flex temp-range ml-2">
+                            <div className="font-italic">max:</div>
+                            <div className="ml-2">{Math.round(results[0].daily[0].temp.max)}°C{" "}</div>
                           </div>
-                          <div>
-                            min: {Math.round(results[0].daily[0].temp.min)}°C{" "}
+                          <div className="d-flex temp-range ml-2">
+                            <div className="font-italic">min:</div>
+                            <div className="ml-3"> {Math.round(results[0].daily[0].temp.min)}°C{" "}</div>
                           </div>
                         </Col>
                         <Col md={4}>
@@ -84,18 +86,18 @@ const Main = () => {
                               rounded
                             />
                           </div>
-                          <div className="description d-flex justify-content-center">
+                          <div className="description d-flex justify-content-center font-weight-bold">
                             {results[0].current.weather[0].description}{" "}
                           </div>
                         </Col>
                         <Col md={5} className="p-0">
                           <div className="sunset ml-4">
                             <div className="d-flex">
-                              <div className="mr-1">sunrise:</div>
+                              <div className="font-italic mr-1">sunrise:</div>
                               <div className="ml-2">{sunrise}</div>
                             </div>
                             <div className="d-flex">
-                              <div>sunset:</div>
+                              <div className="font-italic mr-1">sunset:</div>
                               <div className="ml-3">{sunset}</div>
                             </div>
                           </div>
@@ -106,24 +108,164 @@ const Main = () => {
                 </Card>
               </Col>
             </Row>
-            <Row>
-              <Col>
+            <Row className="mt-4">
+              <Col className="p-1">
                 <Card 
-                style={{ width: "10rem" }}
-                className="bg-transparent border-0">
+                style={{ width: "9rem" , height: "15rem", background:"rgba(255,255,255,0.5)"}}
+                className="daily-card">
                   <Card.Body>
                     <div className="d-flex justify-content-center date-cards">{format(fromUnixTime(results[0].daily[0].dt), "iiii")} </div>
                   <Card.Img variant="top" 
                   src={`http://openweathermap.org/img/wn/${results[0].daily[0].weather[0].icon}@2x.png`}
-                  style={{ width: "8rem" }}
+                  style={{ width: "7rem"}}
                   />
                     <Card.Text>
-                     <div className="maxTemp d-flex justify-content-center align-items-start">
+                      <div className="temps">
+                     <div className="maxTemp d-flex justify-content-center">
                      {Math.round(results[0].daily[0].temp.max)}
                      </div>
                      <div className="minTemp d-flex justify-content-center">
                      {Math.round(results[0].daily[0].temp.min)}
                      </div>
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col className="p-1">
+                <Card 
+                style={{ width: "9rem" , height: "15rem", background:"rgba(255,255,255,0.5)" }}
+                className="daily-card">
+                  <Card.Body>
+                    <div className="d-flex justify-content-center date-cards">{format(fromUnixTime(results[0].daily[1].dt), "iiii")} </div>
+                  <Card.Img variant="top" 
+                  src={`http://openweathermap.org/img/wn/${results[0].daily[1].weather[0].icon}@2x.png`}
+                  style={{ width: "7rem" }}
+                  />
+                    <Card.Text>
+                      <div className="temps">
+                     <div className="maxTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[1].temp.max)}
+                     </div>
+                     <div className="minTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[1].temp.min)}
+                     </div>
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col className="p-1">
+                <Card 
+                style={{ width: "9rem" , height: "15rem", background:"rgba(255,255,255,0.5)" }}
+                className="border-0 daily-card">
+                  <Card.Body>
+                    <div className="d-flex justify-content-center date-cards">{format(fromUnixTime(results[0].daily[2].dt), "iiii")} </div>
+                  <Card.Img variant="top" 
+                  src={`http://openweathermap.org/img/wn/${results[0].daily[2].weather[0].icon}@2x.png`}
+                  style={{ width: "7rem" }}
+                  />
+                    <Card.Text>
+                      <div className="temps">
+                     <div className="maxTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[2].temp.max)}
+                     </div>
+                     <div className="minTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[2].temp.min)}
+                     </div>
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col className="p-1">
+                <Card 
+                style={{ width: "9rem" , height: "15rem", background:"rgba(255,255,255,0.5)" }}
+                className="border-0 daily-card">
+                  <Card.Body>
+                    <div className="d-flex justify-content-center date-cards">{format(fromUnixTime(results[0].daily[3].dt), "iiii")} </div>
+                  <Card.Img variant="top" 
+                  src={`http://openweathermap.org/img/wn/${results[0].daily[3].weather[0].icon}@2x.png`}
+                  style={{ width: "7rem" }}
+                  />
+                    <Card.Text>
+                      <div className="temps">
+                     <div className="maxTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[3].temp.max)}
+                     </div>
+                     <div className="minTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[3].temp.min)}
+                     </div>
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col className="p-1">
+                <Card 
+                style={{ width: "9rem" , height: "15rem", background:"rgba(255,255,255,0.5)" }}
+                className="border-0 daily-card">
+                  <Card.Body>
+                    <div className="d-flex justify-content-center date-cards">{format(fromUnixTime(results[0].daily[4].dt), "iiii")} </div>
+                  <Card.Img variant="top" 
+                  src={`http://openweathermap.org/img/wn/${results[0].daily[4].weather[0].icon}@2x.png`}
+                  style={{ width: "7rem" }}
+                  />
+                    <Card.Text>
+                      <div className="temps">
+                     <div className="maxTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[4].temp.max)}
+                     </div>
+                     <div className="minTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[4].temp.min)}
+                     </div>
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col className="p-1">
+                <Card 
+                style={{ width: "9rem" , height: "15rem", background:"rgba(255,255,255,0.5)" }}
+                className="border-0 daily-card">
+                  <Card.Body>
+                    <div className="d-flex justify-content-center date-cards">{format(fromUnixTime(results[0].daily[5].dt), "iiii")} </div>
+                  <Card.Img variant="top" 
+                  src={`http://openweathermap.org/img/wn/${results[0].daily[5].weather[0].icon}@2x.png`}
+                  style={{ width: "7rem" }}
+                  />
+                    <Card.Text>
+                      <div className="temps">
+                     <div className="maxTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[5].temp.max)}
+                     </div>
+                     <div className="minTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[5].temp.min)}
+                     </div>
+                      </div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col className="p-1">
+                <Card 
+                style={{ width: "9rem" , height: "15rem", background:"rgba(255,255,255,0.5)" }}
+                className="daily-card">
+                  <Card.Body>
+                    <div className="d-flex justify-content-center date-cards">{format(fromUnixTime(results[0].daily[6].dt), "iiii")} </div>
+                  <Card.Img variant="top" 
+                  src={`http://openweathermap.org/img/wn/${results[0].daily[6].weather[0].icon}@2x.png`}
+                  style={{ width: "7rem" }}
+                  />
+                    <Card.Text>
+                      <div className="temps">
+                     <div className="maxTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[6].temp.max)}
+                     </div>
+                     <div className="minTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[6].temp.min)}
+                     </div>
+                      </div>
                     </Card.Text>
                   </Card.Body>
                 </Card>
