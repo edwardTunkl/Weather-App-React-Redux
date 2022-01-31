@@ -112,16 +112,19 @@ const Main = () => {
                 style={{ width: "10rem" }}
                 className="bg-transparent border-0">
                   <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
+                    <div className="d-flex justify-content-center date-cards">{format(fromUnixTime(results[0].daily[0].dt), "iiii")} </div>
                   <Card.Img variant="top" 
                   src={`http://openweathermap.org/img/wn/${results[0].daily[0].weather[0].icon}@2x.png`}
                   style={{ width: "8rem" }}
                   />
                     <Card.Text>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                     <div className="maxTemp d-flex justify-content-center align-items-start">
+                     {Math.round(results[0].daily[0].temp.max)}
+                     </div>
+                     <div className="minTemp d-flex justify-content-center">
+                     {Math.round(results[0].daily[0].temp.min)}
+                     </div>
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
                   </Card.Body>
                 </Card>
               </Col>
