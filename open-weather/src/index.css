@@ -29,9 +29,10 @@ code {
 }
 .main-temp {
   font-size: 3rem;
+  font-weight: 500;
 }
 .temp-range {
-  color: rgb(75, 75, 75);
+  color: rgb(59, 59, 59);
   font-size: 1.3rem;
   font-weight: 500;
 }
@@ -45,9 +46,15 @@ code {
 }
 .sunset {
   margin-top: 4.7rem;
-  color: rgb(75, 75, 75);
+  color: rgb(41, 40, 40);
   font-size: 1.3rem;
   font-weight: 500;
+}
+.sunrise-color {
+  color: rgb(185, 90, 64);
+}
+.sunset-color {
+  color: rgb(124, 59, 41);
 }
 .date-cards {
   height: 1.5rem;
@@ -69,7 +76,7 @@ code {
   padding: 0rem;
   margin: 0;
   -webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: black;
 }
 .daily-card  {
   border: 3px solid black;
