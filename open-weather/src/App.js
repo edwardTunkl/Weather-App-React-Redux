@@ -8,11 +8,13 @@ import Main from "./Components/Main";
 
 const App = () => {
   return (
+    <>
     <div id="app-background">
       <Router>
         <Main />
       </Router>
     </div>
+    </>
   );
 };
 
