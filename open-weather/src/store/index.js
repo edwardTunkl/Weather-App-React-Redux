@@ -23,7 +23,9 @@ export const initialState = {
   },
   search: {
     query:"",
-    results: []
+    results: [],
+    latitude:"",
+    longitude:""
   }
 }
 

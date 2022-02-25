@@ -1,10 +1,10 @@
 import React from "react";
-import { Card, Container, Row, Col } from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import "../index.css";
-import pic from "../assets/winter.jpg";
 import Daily from "./Daily";
 import Current from "./Current";
 import Search from "./Search";
+import MapComponent from "./MapComponent";
 
 const Main = () => {
   return (
@@ -18,11 +18,13 @@ const Main = () => {
                 <Search />
               </div>
               <div className="col-current">
+                {/* <MapComponent/> */}
                 <Current />
               </div>
             </div>
             <div className="daily-row">
               <Daily />
+          
             </div>
           </Container>
         </Container>

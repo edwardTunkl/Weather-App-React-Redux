@@ -1,9 +1,11 @@
 export const SET_USERNAME = 'SET_USERNAME'
 export const ADD_CITY = "ADD_CITY"
 export const REMOVE_CITY = "REMOVE CITY"
+export const GET_WEATHER_LOADING="GET_WEATHER_LOADING"
 export const SET_SEARCH = 'SET_SEARCH'
 export const SET_RESULTS = 'SET_RESULTS'
-export const GET_WEATHER_LOADING="GET_WEATHER_LOADING"
+export const SET_LAT = 'SET_LAT'
+export const SET_LONG = 'SET_LONG'
 
 export const addCityAction = (city) => ({
   type: ADD_CITY,
@@ -43,10 +45,15 @@ export const searchCityAction = (value) => {
         console.log("RES", res.results[0].locations[0].latLng)
         const latQuery = res.results[0].locations[0].latLng.lat
         const longQuery =  res.results[0].locations[0].latLng.lng
-        console.log("LATQUERY", latQuery)
-        console.log("LONGQUERY", longQuery)
-        console.log("ALLOFRES",resp.ok)
          if(resp.ok){
+          dispatch({
+            type: SET_LAT,
+            payload: latQuery
+          })
+          dispatch({
+            type: SET_LONG,
+            payload: longQuery
+          })
            let response = await fetch(
              `https://api.openweathermap.org/data/2.5/onecall?lat=${latQuery}&lon=${longQuery}&exclude=hourly&units=metric&appid=${process.env.REACT_APP_API_KEY}`    
            );

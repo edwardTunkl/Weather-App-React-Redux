@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Image, Card } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { fromUnixTime, format } from "date-fns";
 
@@ -48,7 +48,7 @@ export default function Current() {
                   />
                 </div>
                 <div className="description d-flex font-weight-bold justify-content-center">
-                  {results[0].current.weather[0].description}{" "}
+                  {results[0].current.weather[0].description}
                 </div>
               </div>
             </div>
