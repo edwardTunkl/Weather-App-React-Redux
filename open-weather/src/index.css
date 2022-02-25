@@ -98,7 +98,7 @@ code {
   font-weight: 550;
 }
 .daily-row {
-  margin-top: 5.5rem;
+  margin-top: 4.8rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
