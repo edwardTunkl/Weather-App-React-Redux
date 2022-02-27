@@ -14,16 +14,12 @@ export default function () {
 
   const fetchUserIp = async () => {
     try {
-      let apiIp = await fetch("https://api.my-ip.io/ip.json");
+      let apiIp = await fetch(`https://api.freegeoip.app/json/?apikey=${process.env.REACT_APP_GEO_KEY}`);
       let res = await apiIp.json();
-      console.log("API-IP", res.ip);
-      if (apiIp.ok) {
-        let apiLoc = await fetch(`https://ip-api.com/json/${res.ip}`);
-        let resp = await apiLoc.json();
-        console.log("APILOC", resp);
-        dispatch(setQueryAction(resp.city));
+      console.log("API-IP", res);
+        dispatch(setQueryAction(res.city));
         dispatch(searchCityAction());
-      }
+    
     } catch (error) {
       console.log(error);
     }
