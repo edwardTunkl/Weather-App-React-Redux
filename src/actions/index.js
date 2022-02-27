@@ -40,7 +40,7 @@ export const searchCityAction = (value) => {
   return async (dispatch, getState) => {
     let query = await getState();
       try {
-        let resp = await fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${query.search.query}`)
+        let resp = await fetch(`https://www.mapquestapi.com/geocoding/v1/address?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${query.search.query}`)
         let res = await resp.json()
         console.log("RES", res.results[0].locations[0].latLng)
         const latQuery = res.results[0].locations[0].latLng.lat
