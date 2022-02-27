@@ -18,7 +18,7 @@ export default function () {
       let res = await apiIp.json();
       console.log("API-IP", res.ip);
       if (apiIp.ok) {
-        let apiLoc = await fetch(`http://ip-api.com/json/${res.ip}`);
+        let apiLoc = await fetch(`https://ip-api.com/json/${res.ip}`);
         let resp = await apiLoc.json();
         console.log("APILOC", resp);
         dispatch(setQueryAction(resp.city));
