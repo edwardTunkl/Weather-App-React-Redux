@@ -25,7 +25,8 @@ export const initialState = {
     query:"",
     results: [],
     latitude:"",
-    longitude:""
+    longitude:"",
+    backImg: null
   }
 }
 

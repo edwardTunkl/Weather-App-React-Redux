@@ -1,5 +1,11 @@
 import { initialState } from "../store";
-import { SET_LAT, SET_LONG, SET_RESULTS, SET_SEARCH } from "../actions";
+import {
+  SET_LAT,
+  SET_LONG,
+  SET_RESULTS,
+  SET_SEARCH,
+  SET_BACKGROUNDIMAGE,
+} from "../actions";
 
 export const searchReducer = (state = initialState.search, action) => {
   switch (action.type) {
@@ -23,7 +29,11 @@ export const searchReducer = (state = initialState.search, action) => {
         ...state,
         longitude: action.payload,
       };
-
+    case SET_BACKGROUNDIMAGE:
+      return {
+        ...state,
+        backImg: action.payload,
+      };
     default:
       return state;
   }

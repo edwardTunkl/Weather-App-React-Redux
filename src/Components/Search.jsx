@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "../index.css";
 import { Form} from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { searchCityAction, setQueryAction } from "../actions";
+import { searchCityAction, setQueryAction, randomizeImg } from "../actions";
 
 export default function () {
   const dispatch = useDispatch();
@@ -19,7 +19,6 @@ export default function () {
       console.log("API-IP", res);
         dispatch(setQueryAction(res.city));
         dispatch(searchCityAction());
-    
     } catch (error) {
       console.log(error);
     }
@@ -36,6 +35,7 @@ export default function () {
                 e.preventDefault();
                 dispatch(setQueryAction(e.target.value));
                 dispatch(searchCityAction());
+                dispatch(randomizeImg())
               }
             }}
           />
