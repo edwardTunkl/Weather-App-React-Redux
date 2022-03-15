@@ -8,7 +8,6 @@ export default function () {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("TEST");
     fetchUserIp();
   }, []);
 

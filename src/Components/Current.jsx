@@ -5,10 +5,7 @@ import { fromUnixTime, format } from "date-fns";
 
 export default function Current() {
   const results = useSelector((state) => state.search.results);
-  console.log("RESULTS", results);
-
   const query = useSelector((state) => state.search.query);
-  console.log("QUERY", query);
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

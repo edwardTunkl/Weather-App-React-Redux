@@ -15,7 +15,7 @@ const Main = () => {
   const dispatch = useDispatch()
   useEffect(() => {
    dispatch(randomizeImg())
-  }, [backImg])
+  }, [])
 
 
 
